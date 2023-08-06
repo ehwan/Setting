@@ -19,7 +19,7 @@ function e++11()
 {
 	eval "clang++ $EPP11_FLAGS -o main.out $@"
 }
-alias matlab='/Applications/MATLAB_R2019a.app/bin/matlab -nodesktop -nodisplay -nosplash'
+#alias matlab='/Applications/MATLAB_R2019a.app/bin/matlab -nodesktop -nodisplay -nosplash'
 #alias e++='clang++ ${EPP_FLAGS} -o main.out'
 alias ecc='clang -std=c99 -o main.out'
 alias python='python3'
@@ -35,7 +35,6 @@ DISABLE_AUTO_TITLE="true"
 
 export FZF_BASE=/usr/local/opt/fzf
 #export DISABLE_FZF_KEY_BINDINGS="true"
-export CED=red99.ced.cei.uec.ac.jp
 
 plugins=( fzf )
 
