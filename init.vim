@@ -161,7 +161,7 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
-colorscheme tomorrow-night-eighties
+colorscheme Tomorrow-Night-Eighties
 
 set number
 set relativenumber
