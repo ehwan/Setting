@@ -1,5 +1,5 @@
 " Plugins loading
-call plug#begin( '/Users/ehwan/.config/nvim/plugged' )
+call plug#begin( '~/.config/nvim/plugged' )
 
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'vim-airline/vim-airline'
@@ -77,7 +77,7 @@ autocmd User lsp_setup call lsp#register_server({
       \ 'cmd': {server_info->
       \   [
       \     '/usr/bin/clangd',
-      \     '--compile-commands-dir=/Users/ehwan/.config/nvim/',
+      \     '--compile-commands-dir=~/.config/nvim/',
       \     '--completion-style=detailed',
       \     '--function-arg-placeholders',
       \     '--header-insertion=never',
@@ -90,7 +90,7 @@ autocmd User lsp_setup call lsp#register_server({
       \ 'cmd': {server_info->
       \   [
       \     '/usr/bin/clangd',
-      \     '--compile-commands-dir=/Users/ehwan/.config/nvim/clcompile',
+      \     '--compile-commands-dir=~/.config/nvim/clcompile',
       \     '--completion-style=detailed',
       \     '--function-arg-placeholders',
       \     '--header-insertion=never',
