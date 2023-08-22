@@ -3,7 +3,8 @@ project(my_project
   VERSION 1.0.0
   LANGUAGES CXX
 )
-set( CMAKE_CXX_COMPILER "clang++" )
+set( CMAKE_CXX_COMPILER /usr/bin/clang++ )
+set( CMAKE_C_COMPILER /usr/bin/clang )
 set( CMAKE_EXPORT_COMPILE_COMMANDS ON ) # for clangd compile_commands.json
 
 add_library(prj1 SHARED
@@ -35,6 +36,12 @@ target_compile_options(prj3 PUBLIC
   # -DUSE_AVX
   # -fopenmp
   # -DUSE_MP
+)
+set_target_properties(
+  prj1 prj2 prj2
+  PROPERTIES
+  LANGUAGE CXX
+  CXX_STANDARD 17
 )
 
 target_include_directories(prj3 PUBLIC
