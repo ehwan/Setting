@@ -3,6 +3,9 @@
  * UTF-8
  * UTF-16
  * And char, wchar usage
+ *
+ * http://utf8everywhere.org/#conclusions
+ * Conclusion : Use UTF-8, char, and std::string
  */
 #include <iostream>
 #include <bitset>
