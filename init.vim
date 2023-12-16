@@ -6,11 +6,12 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'tikhomirov/vim-glsl'
+"Plug 'tikhomirov/vim-glsl'
 "Plug 'keith/swift.vim'
 
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
+Plug 'andweeb/presence.nvim'
 "Plug 'apple/sourcekit-lsp' ", { 'branch': 'swift-5.1-branch' }
 
 call plug#end()
