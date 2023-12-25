@@ -21,6 +21,7 @@ call plug#end()
 let s:trigger_dict = {
       \'c':[ '\k\k', "->" , '\.' ],
       \'cpp':[ '\k\k', "::" , "->" , '\.' ],
+      \'rust':[ '\k\k' ],
       \'python':['\k\k','\.'],
       \'cl':['\k\k',"->",'\.'],
       \'swift':['\k\k','\.'],
@@ -85,6 +86,14 @@ autocmd User lsp_setup call lsp#register_server({
       \     '--background-index=false',
       \   ]},
       \ 'whitelist': ['c', 'cpp'],
+      \ })
+autocmd User lsp_setup call lsp#register_server({
+      \ 'name': 'rust-analyzer',
+      \ 'cmd': {server_info->
+      \   [
+      \     '/opt/homebrew/bin/rust-analyzer'
+      \   ]},
+      \ 'whitelist': ['rust'],
       \ })
 autocmd User lsp_setup call lsp#register_server({
       \ 'name': 'clangd-cl',
