@@ -1,4 +1,4 @@
-export PATH=$PATH:/opt/homebrew/bin:/Users/ehwan/Library/Python/3.8/bin
+export PATH=$PATH:/opt/homebrew/bin:/Users/ehwan/Library/Python/3.9/bin
 export LIBRARY_PATH=/opt/homebrew/lib
 export INCLUDE_PATH=/opt/homebrew/include:/usr/local/include
 export LANG=en_US.UTF-8
@@ -36,7 +36,7 @@ DISABLE_AUTO_TITLE="true"
 export FZF_BASE=/usr/local/opt/fzf
 #export DISABLE_FZF_KEY_BINDINGS="true"
 
-plugins=( fzf )
+plugins=( fzf git )
 
 HISTSIZE=128
 SAVEHIST=256
