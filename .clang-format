@@ -1,0 +1,11 @@
+BasedOnStyle: WebKit
+IndentWidth: 2
+TabWidth: 2
+ColumnLimit: 80
+AlignEscapedNewlines: Left
+BreakBeforeBraces: Allman
+IndentPPDirectives: BeforeHash
+NamespaceIndentation: None
+BreakConstructorInitializers: BeforeComma
+BreakInheritanceList: BeforeComma
+AlwaysBreakTemplateDeclarations: Yes
