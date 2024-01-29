@@ -36,7 +36,7 @@ DISABLE_AUTO_TITLE="true"
 export FZF_BASE=/usr/local/opt/fzf
 #export DISABLE_FZF_KEY_BINDINGS="true"
 
-plugins=( fzf git )
+plugins=( fzf )
 
 HISTSIZE=128
 SAVEHIST=256
