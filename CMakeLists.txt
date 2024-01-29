@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.5)
 project(my_project
   VERSION 1.0.0
   LANGUAGES CXX
@@ -12,6 +12,7 @@ add_library(prj1 SHARED
 )
 set_target_properties(prj2 PROPERTIES VERSION ${PROJECT_VERSION})
 set_target_properties(prj2 PROPERTIES SOVERSION 1)
+set_target_properties(prj2 PROPERTIES CXX_STANDARD 17 )
 target_compile_options(prj2 PUBLIC 
   -std=c++17 
   -O2
