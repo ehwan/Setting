@@ -3,6 +3,7 @@ IndentWidth: 2
 TabWidth: 2
 UseTab: Never
 ColumnLimit: 80
+AccessModifierOffset: -2
 AlignAfterOpenBracket: Align
 AlignOperands: Align
 AllowAllArgumentsOnNextLine: false
@@ -17,4 +18,3 @@ BreakConstructorInitializers: BeforeComma
 BreakInheritanceList: BeforeComma
 AlwaysBreakTemplateDeclarations: Yes
 BinPackParameters: false
-PackConstructorInitializers: Never
