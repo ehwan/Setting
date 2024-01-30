@@ -3,6 +3,12 @@ IndentWidth: 2
 TabWidth: 2
 UseTab: Never
 ColumnLimit: 80
+AlignAfterOpenBracket: Align
+AlignOperands: Align
+AllowAllArgumentsOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortFunctionsOnASingleLine: None
+AllowShortIfStatementsOnASingleLine: Never
 AlignEscapedNewlines: Left
 BreakBeforeBraces: Allman
 IndentPPDirectives: BeforeHash
@@ -10,3 +16,5 @@ NamespaceIndentation: None
 BreakConstructorInitializers: BeforeComma
 BreakInheritanceList: BeforeComma
 AlwaysBreakTemplateDeclarations: Yes
+BinPackParameters: false
+PackConstructorInitializers: Never
