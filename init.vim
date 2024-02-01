@@ -145,6 +145,7 @@ function s:completion_set()
     autocmd InsertCharPre <buffer> call s:insertcharpre()
     autocmd CompleteDone <buffer> pclose
     autocmd InsertLeave <buffer> pclose
+    autocmd BufWritePre <buffer> :LspDocumentFormatSync
   augroup END
 endfunction
 autocmd User lsp_buffer_enabled call s:completion_set()
