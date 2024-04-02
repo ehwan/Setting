@@ -1,4 +1,4 @@
-export PATH=$PATH:/opt/homebrew/bin:/Users/ehwan/Library/Python/3.9/bin
+export PATH=$PATH:/opt/homebrew/bin:/Users/ehwan/workspace/PythonVEnv/bin
 export LIBRARY_PATH=/opt/homebrew/lib
 export INCLUDE_PATH=/opt/homebrew/include:/usr/local/include
 export LANG=en_US.UTF-8
@@ -22,7 +22,8 @@ function e++11()
 #alias matlab='/Applications/MATLAB_R2019a.app/bin/matlab -nodesktop -nodisplay -nosplash'
 #alias e++='clang++ ${EPP_FLAGS} -o main.out'
 alias ecc='clang -std=c99 -o main.out'
-alias python='python3'
+alias python='~/workspace/PythonVEnv/bin/python3'
+alias pip='~/workspace/PythonVEnv/bin/pip3'
 
 export SOURCEKIT_TOOLCHAIN_PATH="/Library/Developer/Toolchains/swift-latest.xctoolchain/"
 
