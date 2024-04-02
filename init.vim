@@ -71,8 +71,9 @@ let g:lsp_preview_doubletap = 0
 let g:lsp_signature_help_enabled = 1
 let g:lsp_fold_enabled = 0
 autocmd User lsp_setup call lsp#register_server({
-      \ 'name': 'pyls',
-      \ 'cmd': {server_info->['/Users/ehwan/Library/Python/3.8/bin/pyls']},
+      \ 'name': 'pyright',
+      \ 'cmd': {server_info->
+      \   ['pyright-langserver', '--stdio']},
       \ 'whitelist': ['python']
       \ })
 autocmd User lsp_setup call lsp#register_server({
