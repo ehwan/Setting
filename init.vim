@@ -94,7 +94,7 @@ autocmd User lsp_setup call lsp#register_server({
       \ 'name': 'rust-analyzer',
       \ 'cmd': {server_info->
       \   [
-      \     '/opt/homebrew/bin/rust-analyzer'
+      \     '/Users/ehwan/.cargo/bin/rust-analyzer'
       \   ]},
       \ 'whitelist': ['rust'],
       \ 'initialization_options': {
