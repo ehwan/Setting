@@ -21,6 +21,8 @@ function e++()
 alias python='~/workspace/PythonVEnv/bin/python3'
 alias pip='~/workspace/PythonVEnv/bin/pip3'
 
+alias ls='lsd'
+
 #export SOURCEKIT_TOOLCHAIN_PATH="/Library/Developer/Toolchains/swift-latest.xctoolchain/"
 
 export ZSH_THEME="theunraveler"
