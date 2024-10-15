@@ -18,6 +18,7 @@ function e++()
 {
 	eval "clang++ $EPP_FLAGS -o main.out $@"
 }
+
 alias python='~/workspace/PythonVEnv/bin/python3'
 alias pip='~/workspace/PythonVEnv/bin/pip3'
 
@@ -26,15 +27,10 @@ alias ll='ls -la'
 alias la='ls -a'
 alias l='ls -l'
 
-#export SOURCEKIT_TOOLCHAIN_PATH="/Library/Developer/Toolchains/swift-latest.xctoolchain/"
-
-export ZSH_THEME="theunraveler"
-
-
-export FZF_BASE=/usr/local/opt/fzf
-#export DISABLE_FZF_KEY_BINDINGS="true"
-
-plugins=()
+source ~/workspace/Setting/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_STRATEGY = (completion history)
 
 HISTSIZE=128
 SAVEHIST=256
+
+eval "$(starship init zsh)"
