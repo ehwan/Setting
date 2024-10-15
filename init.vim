@@ -1,16 +1,19 @@
 " Plugins loading
-call plug#begin( '/Users/ehwan/.config/nvim/plugged' )
+call plug#begin( '~/.config/nvim/plugged' )
 
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'tikhomirov/vim-glsl'
+"Plug 'tikhomirov/vim-glsl'
 "Plug 'keith/swift.vim'
 
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
+Plug 'andweeb/presence.nvim'
+" :Copilot setup
+Plug 'github/copilot.vim'
 "Plug 'apple/sourcekit-lsp' ", { 'branch': 'swift-5.1-branch' }
 
 call plug#end()
@@ -20,6 +23,7 @@ call plug#end()
 let s:trigger_dict = {
       \'c':[ '\k\k', "->" , '\.' ],
       \'cpp':[ '\k\k', "::" , "->" , '\.' ],
+      \'rust':[ '\k\k', "::", '\.' ],
       \'python':['\k\k','\.'],
       \'cl':['\k\k',"->",'\.'],
       \'swift':['\k\k','\.'],
@@ -68,8 +72,9 @@ let g:lsp_preview_doubletap = 0
 let g:lsp_signature_help_enabled = 1
 let g:lsp_fold_enabled = 0
 autocmd User lsp_setup call lsp#register_server({
-      \ 'name': 'pyls',
-      \ 'cmd': {server_info->['/Users/ehwan/Library/Python/3.8/bin/pyls']},
+      \ 'name': 'pyright',
+      \ 'cmd': {server_info->
+      \   ['pyright-langserver', '--stdio']},
       \ 'whitelist': ['python']
       \ })
 autocmd User lsp_setup call lsp#register_server({
@@ -77,7 +82,7 @@ autocmd User lsp_setup call lsp#register_server({
       \ 'cmd': {server_info->
       \   [
       \     '/usr/bin/clangd',
-      \     '--compile-commands-dir=/Users/ehwan/.config/nvim/',
+      \     '--compile-commands-dir=~/.config/nvim/',
       \     '--completion-style=detailed',
       \     '--function-arg-placeholders',
       \     '--header-insertion=never',
@@ -86,11 +91,29 @@ autocmd User lsp_setup call lsp#register_server({
       \ 'whitelist': ['c', 'cpp'],
       \ })
 autocmd User lsp_setup call lsp#register_server({
+      \ 'name': 'rust-analyzer',
+      \ 'cmd': {server_info->
+      \   [
+      \     '/Users/ehwan/.cargo/bin/rust-analyzer'
+      \   ]},
+      \ 'whitelist': ['rust'],
+      \ 'initialization_options': {
+      \   'cargo': {
+      \      'buildScripts': {
+      \         'enable': v:true,
+      \       },
+      \      'procMacro': {
+      \         'enable': v:true,
+      \       },
+      \   },
+      \ }
+      \ })
+autocmd User lsp_setup call lsp#register_server({
       \ 'name': 'clangd-cl',
       \ 'cmd': {server_info->
       \   [
       \     '/usr/bin/clangd',
-      \     '--compile-commands-dir=/Users/ehwan/.config/nvim/clcompile',
+      \     '--compile-commands-dir=~/.config/nvim/clcompile',
       \     '--completion-style=detailed',
       \     '--function-arg-placeholders',
       \     '--header-insertion=never',
@@ -125,6 +148,7 @@ function s:completion_set()
     autocmd InsertCharPre <buffer> call s:insertcharpre()
     autocmd CompleteDone <buffer> pclose
     autocmd InsertLeave <buffer> pclose
+    autocmd BufWritePre <buffer> :LspDocumentFormatSync
   augroup END
 endfunction
 autocmd User lsp_buffer_enabled call s:completion_set()
@@ -161,7 +185,7 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
-colorscheme tomorrow-night-eighties
+colorscheme Tomorrow-Night-Eighties
 
 set number
 set relativenumber
@@ -194,9 +218,6 @@ noremap . %
 
 noremap \[ :bp!<cr>
 noremap \] :bn!<cr>
-inoremap <c-s> <esc>:w<cr>
-noremap <c-s> :w<cr>
-noremap <c-q> :bd<cr>
 
 set rtp+=/opt/homebrew/opt/fzf
 nnoremap <c-p> :FZF<cr>
