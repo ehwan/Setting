@@ -27,11 +27,11 @@ alias ll='ls -la'
 alias la='ls -a'
 alias l='ls -l'
 
-source ~/workspace/Setting/zsh-autosuggestions/zsh-autosuggestions.zsh
-ZSH_AUTOSUGGEST_STRATEGY = (completion history)
+#source ~/workspace/Setting/zsh-autosuggestions/zsh-autosuggestions.zsh
+#ZSH_AUTOSUGGEST_STRATEGY = (completion history)
 #bindkey '^ '   complete-word       # tab          | complete
 #bindkey '^ '   autosuggest-accept  # ctrl + space | autosuggest
-bindkey '^I'   autosuggest-accept  # tab | autosuggest
+#bindkey '^I'   autosuggest-accept  # tab | autosuggest
 
 HISTSIZE=128
 SAVEHIST=256
