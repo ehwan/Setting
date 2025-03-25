@@ -1,0 +1,7 @@
+  Host github.com
+      IgnoreUnknown AddKeysToAgent,UseKeychain
+      AddKeysToAgent yes
+      UseKeychain yes
+      HostName github.com
+      User ehwan
+      IdentityFile ~/.ssh/github
