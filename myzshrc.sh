@@ -1,6 +1,35 @@
-export PATH=$PATH:/opt/homebrew/bin:/Users/ehwan/workspace/PythonVEnv/bin
-export LIBRARY_PATH=/opt/homebrew/lib
-export INCLUDE_PATH=/opt/homebrew/include:/usr/local/include
+LINUX_HOME=/home/ehwan
+MAC_HOME=/Users/ehwan
+CUDA_HOME=/usr/local/cuda
+HOMEBREW_HOME=/opt/homebrew
+
+MY_INCLUDE=/usr/local/include
+MY_LIB=/usr/local/lib
+
+# for macOS
+if [ "$(uname)" = "Linux" ]; then
+	# cuda
+	MY_PATH=$CUDA_HOME/bin
+	MY_INCLUDE=$MY_INCLUDE:$CUDA_HOME/include
+	MY_LIB=$MY_LIB:$CUDA_HOME/lib64
+	# python
+	MY_PATH=$MY_PATH:$LINUX_HOME/workspace/PythonVEnv/bin
+# for linux
+elif [ "$(uname)" = "Darwin" ]; then
+	# homebrew
+	MY_PATH=$HOMEBREW_HOME/bin
+	MY_INCLUDE=$MY_INCLUDE:$HOMEBREW_HOME/include
+	MY_LIB=$MY_LIB:$HOMEBREW_HOME/lib
+	# python
+	MY_PATH=$MY_PATH:$MAC_HOME/workspace/PythonVEnv/bin
+
+else
+	echo "[ERROR] myzshrc.sh: Unknown OS!"
+fi
+
+export PATH=$PATH:$MY_PATH
+export LIBRARY_PATH=$LIBRARY_PATH:$MY_LIB
+export INCLUDE_PATH=$INCLUDE_PATH:$MY_INCLUDE
 
 export LANG=en_US.UTF-8
 
@@ -11,8 +40,6 @@ DISABLE_AUTO_TITLE="true"
 
 export EPP_FLAGS="\
 -std=c++17 \
--I /Users/ehwan/Documents/workspace/includes \
--I /opt/homebrew/include \
 "
 function e++()
 {
