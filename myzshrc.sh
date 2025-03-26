@@ -32,6 +32,7 @@ export LIBRARY_PATH=$LIBRARY_PATH:$MY_LIB
 export INCLUDE_PATH=$INCLUDE_PATH:$MY_INCLUDE
 
 export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 export EDITOR="nvim"
 
