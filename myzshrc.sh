@@ -1,31 +1,30 @@
-LINUX_HOME=/home/ehwan
-MAC_HOME=/Users/ehwan
+# Settings
 CUDA_HOME=/usr/local/cuda
 HOMEBREW_HOME=/opt/homebrew
 
 MY_INCLUDE=/usr/local/include
 MY_LIB=/usr/local/lib
 
-# for macOS
+# for linux
 if [ "$(uname)" = "Linux" ]; then
 	# cuda
 	MY_PATH=$CUDA_HOME/bin
 	MY_INCLUDE=$MY_INCLUDE:$CUDA_HOME/include
 	MY_LIB=$MY_LIB:$CUDA_HOME/lib64
-	# python
-	MY_PATH=$MY_PATH:$LINUX_HOME/workspace/PythonVEnv/bin
-# for linux
+
+# for macOS
 elif [ "$(uname)" = "Darwin" ]; then
 	# homebrew
 	MY_PATH=$HOMEBREW_HOME/bin
 	MY_INCLUDE=$MY_INCLUDE:$HOMEBREW_HOME/include
 	MY_LIB=$MY_LIB:$HOMEBREW_HOME/lib
-	# python
-	MY_PATH=$MY_PATH:$MAC_HOME/workspace/PythonVEnv/bin
 
 else
 	echo "[ERROR] myzshrc.sh: Unknown OS!"
 fi
+
+# python
+MY_PATH=$MY_PATH:$HOME/workspace/PythonVEnv/bin
 
 export PATH=$PATH:$MY_PATH
 export LIBRARY_PATH=$LIBRARY_PATH:$MY_LIB
