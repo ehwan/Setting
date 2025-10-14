@@ -49,7 +49,11 @@ function e++()
 alias python='~/workspace/PythonVEnv/bin/python3'
 alias pip='~/workspace/PythonVEnv/bin/pip3'
 
-alias ls='lsd'
+if command -v lsd &> /dev/null; then
+    alias ls='lsd'
+else
+    echo "Error: 'lsd' command not found. Alias 'ls' not set."
+fi
 alias ll='ls -la'
 alias la='ls -a'
 alias l='ls -l'
