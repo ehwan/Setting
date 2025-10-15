@@ -24,7 +24,24 @@ else
 fi
 
 # python
-MY_PATH=$MY_PATH:$HOME/workspace/PythonVEnv/bin
+MY_PYTHON_VENV_DIR="$HOME/workspace/PythonVEnv"
+if [ -d "$MY_PYTHON_VENV_DIR" ]; then
+    MY_PATH=$MY_PATH:$MY_PYTHON_VENV_DIR
+    alias python='$MY_PYTHON_VENV_DIR/bin/python3'
+    alias pip='$MY_PYTHON_VENV_DIR/bin/pip3'
+else
+    echo "Error: python venv '$MY_PYTHON_VENV_DIR' NOT EXIST."
+fi
+
+
+if command -v lsd &> /dev/null; then
+    alias ls='lsd'
+else
+    echo "Error: 'lsd' command NOT FOUND. Alias 'ls' not set."
+fi
+alias ll='ls -la'
+alias la='ls -a'
+alias l='ls -l'
 
 export PATH=$PATH:$MY_PATH
 export LIBRARY_PATH=$LIBRARY_PATH:$MY_LIB
@@ -47,17 +64,6 @@ function e++()
 	eval "clang++ $EPP_FLAGS -o main.out $@"
 }
 
-alias python='~/workspace/PythonVEnv/bin/python3'
-alias pip='~/workspace/PythonVEnv/bin/pip3'
-
-if command -v lsd &> /dev/null; then
-    alias ls='lsd'
-else
-    echo "Error: 'lsd' command not found. Alias 'ls' not set."
-fi
-alias ll='ls -la'
-alias la='ls -a'
-alias l='ls -l'
 
 #source ~/workspace/Setting/zsh-autosuggestions/zsh-autosuggestions.zsh
 #ZSH_AUTOSUGGEST_STRATEGY = (completion history)
