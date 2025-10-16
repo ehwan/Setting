@@ -1,3 +1,5 @@
+# put myzshrc.sh execution at the end of zshrc
+
 # Settings
 CUDA_HOME=/usr/local/cuda
 HOMEBREW_HOME=/opt/homebrew
