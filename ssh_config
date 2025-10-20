@@ -1,7 +1,12 @@
-  Host github.com
-      IgnoreUnknown AddKeysToAgent,UseKeychain
-      AddKeysToAgent yes
-      UseKeychain yes
-      HostName github.com
-      User ehwan
-      IdentityFile ~/.ssh/github
+Host github.com
+    IgnoreUnknown AddKeysToAgent,UseKeychain
+    AddKeysToAgent yes
+    UseKeychain yes
+    HostName github.com
+    User ehwan
+    IdentityFile ~/.ssh/github.key
+
+Host oracle
+    HostName xxx.xxx.xxx.xxx
+    User ubuntu
+    IdentityFile ~/.ssh/oracle.key
