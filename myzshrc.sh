@@ -7,6 +7,8 @@ HOMEBREW_HOME=/opt/homebrew
 MY_INCLUDE=/usr/local/include
 MY_LIB=/usr/local/lib
 
+MY_PYTHON_VENV_DIR="$HOME/workspace/PythonVEnv"
+
 # for linux
 if [ "$(uname)" = "Linux" ]; then
 	# cuda
@@ -26,13 +28,13 @@ else
 fi
 
 # python
-MY_PYTHON_VENV_DIR="$HOME/workspace/PythonVEnv"
 if [ -d "$MY_PYTHON_VENV_DIR" ]; then
     MY_PATH=$MY_PATH:$MY_PYTHON_VENV_DIR
     alias python='$MY_PYTHON_VENV_DIR/bin/python3'
     alias pip='$MY_PYTHON_VENV_DIR/bin/pip3'
 else
     echo "Error: python venv '$MY_PYTHON_VENV_DIR' NOT EXIST."
+    echo "Run 'python3 -m venv $MY_PYTHON_VENV_DIR' to create one."
 fi
 
 
