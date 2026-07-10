@@ -3,6 +3,24 @@
 SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
 
 if [ "$(uname)" = "Linux" ]; then
+    if [ -f /etc/os-release ]; then
+        # Check if the OS is Ubuntu or Debian
+        OS_ID=$(. /etc/os-release && echo "$ID")
+    else
+        OS_ID="unknown"
+    fi
+
+    if [ "$OS_ID" != "ubuntu" ] && [ "$OS_ID" != "debian" ]; then
+        echo "Error: This script can only be run on Ubuntu/Debian systems." >&2
+        exit 1
+    fi
+
+    if ! command -v apt >/dev/null 2>&1; then
+        echo "Error: This script requires the 'apt' package manager." >&2
+        exit 1
+    fi
+
+
     sudo -v
 
     sudo apt update
