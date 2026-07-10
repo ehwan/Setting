@@ -2,17 +2,35 @@
 
 SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
 
-sudo -v
+if [ "$(uname)" = "Linux" ]; then
+    sudo -v
 
-sudo apt update
-sudo apt install build-essential -y
-sudo apt install zsh -y
-sudo apt install neovim -y
-sudo apt install python3 python3-venv python3-pip -y
+    sudo apt update
+    sudo apt install build-essential -y
+    sudo apt install zsh -y
+    sudo apt install neovim -y
+    sudo apt install python3 python3-venv python3-pip -y
 
-sudo -k
+    sudo -k
 
-chsh -s $(which zsh)
+    chsh -s $(which zsh)
+elif [ "$(uname)" = "Darwin" ]; then
+    if [ -z "$ZSH_VERSION" ] && [ "$(basename "$SHELL")" != "zsh" ]; then
+        echo "Error: This script can only be run in a zsh environment." >&2
+        exit 1
+    fi
+
+    # Check if Homebrew is installed
+    if ! command -v brew >/dev/null 2>&1; then
+        echo "Error: Homebrew is not installed or not in PATH." >&2
+        exit 1
+    fi
+
+    brew update
+
+    brew install --non-interactive neovim
+    # brew install --non-interactive python
+fi
 
 mkdir -p "$HOME/.config/nvim"
 mkdir -p "$HOME/.config/nvim/autoload"
