@@ -11,9 +11,9 @@ Plug 'scrooloose/nerdtree'
 
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
-Plug 'andweeb/presence.nvim'
+" Plug 'andweeb/presence.nvim'
 " :Copilot setup
-Plug 'github/copilot.vim'
+" Plug 'github/copilot.vim'
 "Plug 'apple/sourcekit-lsp' ", { 'branch': 'swift-5.1-branch' }
 
 call plug#end()
